@@ -11,7 +11,20 @@ module.exports = function (grunt) {
                 dest: 'Built/style.css',
             },
         },
+        watch: {
+            js: {
+                files: ['js/**/*.js'],
+                tasks: ['concat:js'],               
+            },
+            css: {
+                files: ['css**/*.css'],
+                tasks: ['concat'],
+            },
+        },
+        clean: ["css/main.css", "js/1.js"]
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 };
